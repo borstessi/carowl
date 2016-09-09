@@ -18,8 +18,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
-      StatusBar.styleDefault();
+		StatusBar.hide();
     }
+    
   });
 })
 
@@ -40,9 +41,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 	templateUrl: 'templates/config.html',
 	controller: 'configCtrl',
 	})
+	
+	.state('game', {
+	url: '/game',
+	templateUrl: 'templates/game.html',
+	controller: 'gameCtrl',
+	})
 		      
-	$urlRouterProvider.otherwise('/start'); 
-	//$urlRouterProvider.otherwise('/config');  
+	//$urlRouterProvider.otherwise('/start'); 
+	//$urlRouterProvider.otherwise('/config');
+	$urlRouterProvider.otherwise('/game');  
 	  
 });
 
