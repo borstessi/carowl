@@ -179,17 +179,17 @@ i.larger-icon-pad{font-size: 26px;margin-top: -1px;}
 
 
 
-.grey-text {color:#6e6868;}
-.grey {background-color:#6e6868;}
+.grey-text {color:#6e6868 !important;}
+.grey {background-color:#6e6868 !important;}
 
-.blue-text {color:#5e7991;}
-.blue {background-color:#5e7991;}
+.blue-text {color:#5c6bc0 !important;}
+.blue {background-color:#5c6bc0 !important;}
 
-.red-text {color:#d75a4a;}
-.red {background-color:#d75a4a;}
+.red-text {color:#EF5350 !important;}
+.red {background-color:#EF5350 !important;}
 
-.green-text {color:#cfd953;}
-.green {background-color:#cfd953;}
+.green-text {color:#d4e157 !important;}
+.green {background-color:#d4e157 !important;}
 
 
 .bg-dark {background:#333;}

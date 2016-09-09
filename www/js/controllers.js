@@ -105,7 +105,9 @@ $scope.showFeed = function() {
   });
   $scope.closePopup = function() {
 		myPopup.close();
+	$scope.fadeOutOverlay();
 	};
+	$scope.fadeInOverlay();
 };
 $scope.showPlay = function() {
   $scope.data = {};
@@ -118,7 +120,9 @@ $scope.showPlay = function() {
   });
   $scope.closePopup = function() {
 		myPopup.close();
+	$scope.fadeOutOverlay();
 	};
+	$scope.fadeInOverlay();
 };
 $scope.showSleep = function() {
   $scope.data = {};
@@ -133,7 +137,9 @@ $scope.showSleep = function() {
   $scope.closePopup = function() {
 		myPopup.close();
 		
+	$scope.fadeOutOverlay();
 	};
+	$scope.fadeInOverlay();
 };
 	
 
@@ -362,7 +368,7 @@ $scope.showSleep = function() {
 			$timeout(function(){
 				$scope.owlFeeling = 'sleepy';	
 			},600);
-			$scope.sleepCounter = 1;
+			$scope.sleepFeelingStatus = 1;
 		}
 		if( $scope.playerOwl.loveStatus < 20 || $scope.playerOwl.feedStatus < 20 || $scope.playerOwl.sleepStatus < 20 || $scope.playerOwl.levelStatus < 20 ) {
 			console.log('SAD OWL');			
