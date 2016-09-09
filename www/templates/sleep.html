@@ -1,0 +1,166 @@
+<div class="popup-header">
+    <div class="row header-row">
+        <div class="col s6 sleep-icon"><i class="fa fa-moon-o blue-text"></i></div>
+        <div class="col s6 close-icon"><i class="fa fa-close" ng-click="closePopup()"></i></div>
+
+
+    </div>
+</div>
+      
+
+<ion-slide-box ng-init="disableSwipe()" show-pager="false" class="cnfg-slide-box">
+
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="sleeping-status owl-sleeping-mood">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <p class="grey-text mar-top-30"><strong>Deine Eule braucht schlaf.</strong></br>Damit deine Eule wieder fit wird,<strong>alte ihr die Augen zu oder leg ein Tuch über sie.</strong> Wenn dein Partner seine Eule auch schlafen lässt, erhaltet ihr Bonuspunkte.<strong> Lass deine Eule 30 Sekunden im dunkeln, damit sie schlafen kann.</strong></p>
+
+  </div>
+  <div class="row">
+    <div class="col s12 event-start-btn blue-text" ng-click="startSleepGame()">Start</div>
+  </div>
+</div>
+
+
+</form>
+</ion-slide>
+
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="sleeping-status owl-sleeping">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <p class="grey-text mar-top-30"><strong>Halte deiner Eule nun 30 Sekunden lang die Augen zu.</strong> Unten kannst du deinen Erfolg verfolgen.<strong> Tut dein Partner dies auch, erscheint eine weitere Erfolgsanzeige.</strong></p>
+
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <div class="sleep-indicator">
+          <md-progress-circular md-mode="determinate" md-diameter="96" min-value="0" max-value="30" value="{{sleepProgress}}" ></md-progress-circular>
+          <div class="progress-counter grey-text">{{sleepCounter}}</div>
+          <div class="progress-counter-label grey-text">Sekunden</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</form>
+</ion-slide>
+
+
+
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="sleep-success" ng-click="nextSlide()">
+        <i class="fa fa-check blue-text"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="blue-text sleep-quest">Sehr gut!</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col s12">
+      <p class="grey-text">Deine Eule hat erfolgreich eine Mütze Schlaf bekommen. <strong>Dafür erhählt sie wertvolle Energie für weitere Aktionen und zusätzlich einige Erfahrungspunkte.</strong></p>
+      
+    </div>
+    
+  </div>
+  
+  <div class="row">
+
+    <div class="col s6">
+      <div class="feeding-points grey-text">+10</div>
+      <div class="sleeping-ball blue">
+        <i class="ion-ios-moon"></i>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="feeding-points grey-text">+10</div>
+      <div class="xp-ball green">
+        XP
+      </div>
+    </div>
+  </div>
+    
+
+
+</div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-success blue" ng-click="nextSlide()">
+        <i class="fa fa-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Fehlgeschlagen</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col s12">
+      <p class="grey-text">Deine Eule konnte nicht schlafen. <strong>Versuch es nochmal und sorge dafür, dass es komplett dunkel ist.</strong></p>
+      
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col s12 event-start-btn blue-text" ng-click="restartSleep()">Neustart</div>
+    
+  </div>
+  
+
+    
+
+
+</div>
+
+
+</form>
+</ion-slide>
+
+
+</ion-slide-box>
+
