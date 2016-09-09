@@ -36,7 +36,7 @@
 						<div class="config-back-btn" ng-click="backToCnfg()">
 							<i class="fa fa-angle-left" aria-hidden="true"></i>
 						</div>
-						<div class="bckgrnd-gear">
+						<div class="bckgrnd-gear" ng-click="check()">
 							<i class="icon ion-ios-gear-outline"></i>
 						</div>
 						<div class="config2-title">
@@ -46,12 +46,11 @@
 										
 						<ion-scroll zooming="true" direction="y" class="scroll-container-skinList">
 							<ion-list>						
-								<ion-item class="characterItem" ng-repeat="owl in owls" ng-click="chosenOwl()">
-									<img class="character-choice-img" src="img/Skin_{{owl.color}}_normal.png" />
+								<ion-item class="characterItem" ng-repeat="owl in owls">
+									<img class="character-choice-img" src="img/Owl_Skins/skin-{{owl.color}}-normal.svg" ng-click="chosenOwl('{{owl.color}}')"/>
 								</ion-item>
 							</ion-list>
 						</ion-scroll>
-						
 						
 					</ion-slide>
 					<ion-slide>  
