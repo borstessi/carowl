@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller("gameCtrl",function($scope, $interval, $state, $timeout, $ionicPopup, $ionicScrollDelegate, Owl){    
+.controller("gameCtrl",function($scope, $interval, $state, $timeout, $ionicPopup, $ionicScrollDelegate, Owl, $ionicSlideBoxDelegate){    
 
 	
 	$scope.sleepProgress = 100;
@@ -79,8 +79,20 @@ $scope.showLove = function() {
   });
   $scope.closePopup = function() {
 		myPopup.close();
+		$scope.fadeOutOverlay();
 	};
+	$scope.fadeInOverlay();
 };
+
+	$scope.fadeInOverlay = function () {
+		$('.slider-fader').css('background', 'rgba(0,0,0,0.5)');	
+		$('.slider-fader').css('visibility', 'visible');	
+	};
+	
+	$scope.fadeOutOverlay = function () {
+		$('.slider-fader').css('background', 'rgba(0,0,0,0)');	
+		$('.slider-fader').css('visibility', 'hidden');	
+	};
 
 $scope.showFeed = function() {
   $scope.data = {};
