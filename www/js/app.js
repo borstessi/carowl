@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 		      
 	//$urlRouterProvider.otherwise('/start'); 
 	//$urlRouterProvider.otherwise('/config');
-	$urlRouterProvider.otherwise('/game');  
+	$urlRouterProvider.otherwise('/config');  
 	  
 });
 
