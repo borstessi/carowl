@@ -1,9 +1,265 @@
-<div class="movieInfo-popUp" >
-	<div class="movieInfo-popUpHead" ng-click="closePopUp()">ClosePopUp</div>
-	<div class="movieInfo-popUpTitleText">
-		<span class="movieInfo-popUpTitle {{popUpTitleColor}}" >Hallo Hallo</span>
-		</br>
-		</br>
-		Inhalt
-	</div>
+
+<div class="popup-header">
+    <div class="row header-row">
+        <div class="col s6"><i class="fa fa-cutlery grey-text"></i></div>
+        <div class="col s6 close-icon"><i class="fa fa-close" ng-click="closePopup()"></i></div>
+
+
+    </div>
 </div>
+<ion-slide-box ng-init="disableSwipe()" show-pager="false" class="cnfg-slide-box">
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s6">
+      <div class="feeding-item apple" ng-click="nextSlide()">
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="feeding-item lime-banana">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col s6">
+      <div class="feeding-item melon-lime-cherry">
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="feeding-item melon-pear-cherry-blueberries">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <p class="grey-text mar-top-30">Such dir eines der Gerichte aus.
+      Je mehr Farben ein Gericht hat, desto 
+      mehr Punkte erhält deine Eule. Gerichte
+      mit vier Farben, sind für zwei Spieler.</p>
+
+    </div>
+
+  </div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-item-chosen apple">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <p class="grey-text mar-top-30"><strong>Einen Apfel also..</strong></br>Um deine Eule zu füttern, halte die unten stehenden Farben <strong>vor das rechte Auge deines Owlyvice.</strong> Wurde eine Farbe erkannt, bekommst du ein optisches Feedback in der App. <strong>Pro Farbe hast du 10 Sekunden zeit.</strong></p>
+
+  </div>
+  <div class="row">
+    <div class="col s12 event-start-btn grey-text" ng-click="nextSlide()">Start</div>
+  </div>
+</div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  <md-toolbar>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Scanne folgende Farbe</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="feeding-color">
+      <div class="feeding-timer">8</div>
+      <div class="feeding-timer-label">Sekunden</div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="feeding-color-scanning"></div>
+
+
+  </div>
+
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Spitze!</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="feeding-color">
+      <div class="feeding-status"><i class="fa fa-check"></i></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="feeding-color-scanning"></div>
+
+
+  </div>
+
+</div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Leider falsch!</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="feeding-color">
+      <div class="feeding-status"><i class="fa fa-close"></i></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="feeding-color-scanning"></div>
+
+
+  </div>
+
+</div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-success grey" ng-click="nextSlide()">
+        <i class="fa fa-check"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Hervorragend, du hast
+        alle Farben eingescannt!</p>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col s6">
+      <div class="feeding-points grey-text">+10</div>
+      <div class="feeding-scanned-colors">
+        <i class="fa fa-cutlery"></i>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="feeding-points grey-text">+10</div>
+      <div class="feeding-scanned-colors">
+        <i class="fa fa-cutlery"></i>
+      </div>
+    </div>
+  </div>
+  
+
+    
+
+
+</div>
+
+
+</form>
+</ion-slide>
+
+<ion-slide>
+<form ng-cloak>
+  
+  <div class="row">
+
+    <div class="col s12">
+      <div class="feeding-success grey" ng-click="nextSlide()">
+        <i class="fa fa-close"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <p class="grey-text feeding-quest">Leider war die Fütterung nicht erfolgreich.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 event-start-btn" ng-click="restartSlide()">Neustart</div>
+    
+  </div>
+  
+
+    
+
+
+</div>
+
+
+</form>
+</ion-slide>
+
+
+</ion-slide-box>
+
+

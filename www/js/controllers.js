@@ -62,6 +62,143 @@ angular.module('starter.controllers', [])
 
 .controller("gameCtrl",function($scope, $interval, $state, $timeout, $ionicPopup, $ionicScrollDelegate, Owl){    
 
+	
+	$scope.sleepProgress = 100;
+	$scope.sleepCounter = 10;
+	var sleepingIndicator = false;
+
+$scope.showLove = function() {
+  $scope.data = {};
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    templateUrl: '../templates/love.html',
+    scope: $scope,
+
+    
+  });
+  $scope.closePopup = function() {
+		myPopup.close();
+	};
+};
+
+$scope.showFeed = function() {
+  $scope.data = {};
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    templateUrl: '../templates/feed.html',
+    scope: $scope
+    
+  });
+  $scope.closePopup = function() {
+		myPopup.close();
+	};
+};
+$scope.showPlay = function() {
+  $scope.data = {};
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    templateUrl: '../templates/play.html',
+    scope: $scope
+    
+  });
+  $scope.closePopup = function() {
+		myPopup.close();
+	};
+};
+$scope.showSleep = function() {
+  $scope.data = {};
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    templateUrl: '../templates/sleep.html',
+    scope: $scope,
+
+    
+  });
+  $scope.closePopup = function() {
+		myPopup.close();
+		
+	};
+};
+	
+
+ $scope.nextSlide = function() {
+		$ionicSlideBoxDelegate.next();
+	};
+	$scope.restartSlide = function() {
+		$ionicSlideBoxDelegate.slide(0);
+	};
+
+	$scope.disableSwipe = function() {
+		$ionicSlideBoxDelegate.enableSlide(false);
+	};
+	$scope.restartSleep = function() {
+		$ionicSlideBoxDelegate.slide(0);
+		$scope.cancelIntervalls();
+	};
+
+
+	$scope.startSleepGame = function() {
+	
+		$ionicSlideBoxDelegate.slide(1);
+
+
+	var sleepProgressFunction = $interval(function(){
+
+		$scope.sleepProgress -= 1;
+		if (sleepingIndicator)
+			{
+				$interval.cancel(sleepProgressFunction);
+				$interval.cancel(sleepCounterFunction);
+				sleepingIndicator = false;
+				$scope.sleepProgress = 100;
+				$scope.sleepCounter = 10;
+			}
+		if ($scope.sleepProgress <= 0 && !sleepingIndicator && $scope.sleepCounter <= 0) 
+			{
+				
+				sleepingIndicator = true;
+				$ionicSlideBoxDelegate.next();
+	
+				}
+		},100);
+
+	var sleepCounterFunction = $interval(function(){
+
+			$scope.sleepCounter -= 1;
+
+		},1000);
+		
+		
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	$scope.playerOwl = Owl.all();
 	$scope.owlFeeling = 'normal';
 	console.log($scope.playerOwl);
