@@ -1,0 +1,72 @@
+body, html, *{font-family: 'Montserrat', sans-serif;}
+
+.default-background-color{ background: white;}
+
+.spinn-Position {position: absolute; bottom: 125px; width:90%;opacity: 0.7;}
+.spinner svg { width: 100% !important; height: 80px !important; stroke: #6d6767 !important; }
+
+/*.start-title{width:70%; margin-left: 15%;text-align: center; margin-top: 30px;}
+.start-title p{font-size: 44px;font-family: 'Montserrat', sans-serif; color:#6d6767;font-weight: 400;}
+.start-title p span {font-weight: 700;}*/
+
+.start-logo{position:relative;width:85%;margin-left: 7.5%;}
+img.start-logo-img {width:100%; height:auto;}
+
+.fullSize-background{position: absolute; z-index: 0; width:100%; height:100%;}
+.fullSize-background img {width: 100%;height:100%;}
+
+.cnfg-content-container{position:absolute;width: 100%; height:100%; padding: 5%; background: transparent; box-sizing: border-box;}
+.cnfg-content-container-inner{width:100%;height:100%; background: white;}
+.cnfg-content-container-inner-start{width:100%;height:100%; background: white;padding-top: 80px;}
+
+.config1-title, .config2-title, .config3-title, .config4-title{position:absolute;width:80%; margin-left: 10%;text-align: center; margin-top: 40px;}
+.config2-title, .config3-title{margin-top: 180px;}
+.config4-title {margin-top: 220px;}
+.config1-title p, .config2-title p, .config3-title p, .config4-title p{font-size: 28px;font-family: 'Montserrat', sans-serif; font-weight:400; color:#6d6767; line-height: 1.2;}
+.config1-title p span, .config2-title p span, .config3-title p span {font-weight: 700;}
+
+.config1-info {position:absolute;width:100%;padding:0 7%;margin-top: 150px;}
+.config1-info p {font-size: 12pt; color:#6d6767;}
+.config1-info p span {font-weight: 700;}
+
+.start-config-btn{position:absolute;width:60%;margin: 380px 0 0 20%; text-align: center;}
+.start-config-btn p {font-size: 16pt; color:#6d6767; font-weight: 700;}
+.start-config-btn p:first-child{margin-bottom: 10px;}
+.start-config-btn p:last-child{margin-top: 10px;}
+.start-config-btn i {font-size: 102pt; color:#6d6767;}
+
+.config-back-btn{position: absolute; margin:2% 0 0 0%; width:50px; height:50px;text-align: center;z-index: 1;}
+.config-back-btn i {color:#6d6767; font-size: 38pt; opacity: 0.7;}
+
+.config-rebegin-btn{position: absolute; margin:4.5% 0 0 0%;right:10px; width:50px; height:50px;text-align: center;z-index: 1;}
+.config-rebegin-btn i{color:#6d6767; font-size: 28pt; opacity: 0.7;}
+
+.cnfg-slide-box{width: 100%;height: 100%;}
+
+.slider-pager .slider-pager-page {color:#6d6767;width:18px;font-size: 12px;}
+
+.bckgrnd-gear{position: absolute;width: 40%;height:auto;text-align: center;margin: 3% 0 0 12%;z-index: 0;}
+.bckgrnd-gear i {font-size: 132pt; color:rgba(109,103,103,0.2);}
+
+.character-choice1, .character-choice2{width:50%;position: absolute;margin:78% 0 0 25%;padding: 2% 10%;border:1px solid rgba(109,103,103,0.5);box-sizing: border-box;}
+.character-choice2 {margin-top: 125%;}
+.character-choice1 img, .character-choice2 img{width:100%;height:auto;}
+
+.deviceList-title{position: absolute; margin-top: 83%; margin-left: 5%; font-weight: 400; color: #6d6767; opacity: 0.5; font-size: 10pt; }
+
+.scroll-container-deivceList{width:100%;height:280px;margin-top:310px;}
+
+.deviceItem {width:90%;	height: 70px; margin: 2% auto; box-sizing: border-box;border:1px solid rgba(109,103,103,0.1);padding-top: 7%;}
+.deviceItem p {	height: auto; color: rgba(109,103,103,0.9);font-size: 16px;font-weight: 700;}
+.deviceItem i {font-size: 32px; opacity: 0.4;}
+.link-decoration{text-decoration: none;}
+
+.floaterLeft { float:left; }
+.floaterRight { float:right; }
+.bluetooth-margin{margin-top:-7px;}
+
+.bluetooth-connect-icon { width:80%; height: 40%; margin-left:10%; margin-top: 93%; padding: 0 24.3%}
+.bluetooth-connect-icon i {font-size: 94pt; color:rgba(109,103,103,0.5);}
+
+.progress {width:70%; height:8px; margin-left: 15% !important; border-radius:0px; background-color: rgba(109,103,103,0.5); margin-top: -50px;}
+.progress .indeterminate {background-color: #6d6767;}
