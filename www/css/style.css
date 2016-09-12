@@ -3,13 +3,13 @@ body, html, *{font-family: 'Montserrat', sans-serif;}
 .default-background-color{ background: white;}
 
 .spinn-Position {position: absolute; bottom: 125px; width:90%;opacity: 0.7;}
-.spinner svg { width: 100% !important; height: 80px !important; stroke: #6d6767 !important; }
+.spinner svg { width: 100% !important; height: 80px !important; stroke: #cfd955 !important; }
 
 /*.start-title{width:70%; margin-left: 15%;text-align: center; margin-top: 30px;}
 .start-title p{font-size: 44px;font-family: 'Montserrat', sans-serif; color:#6d6767;font-weight: 400;}
 .start-title p span {font-weight: 700;}*/
 
-.start-logo{position:relative;width:85%;margin-left: 7.5%;}
+.start-logo{position:relative;width:75%;margin-left: 12.5%;}
 img.start-logo-img {width:100%; height:auto;}
 
 .fullSize-background{position: absolute; z-index: 0; width:100%; height:100%;}
@@ -34,7 +34,7 @@ img.start-logo-img {width:100%; height:auto;}
 .start-config-btn p {font-size: 16pt; color:#6d6767; font-weight: 700;}
 .start-config-btn p:first-child{margin-bottom: 10px;}
 .start-config-btn p:last-child{margin-top: 10px;}
-.start-config-btn i {font-size: 102pt; color:#6d6767;}
+.start-config-btn i {font-size: 102pt; color:#cfd955;}
 
 .config-back-btn{position: absolute; margin:2% 0 0 0%; width:50px; height:50px;text-align: center;z-index: 1;}
 .config-back-btn i {color:#6d6767; font-size: 38pt; opacity: 0.7;}
@@ -60,10 +60,14 @@ img.start-logo-img {width:100%; height:auto;}
 
 .deviceItem {width:90%;	height: 70px; margin: 2% auto; box-sizing: border-box;border:1px solid rgba(109,103,103,0.1);padding-top: 7%;}
 .deviceItem p {	height: auto; color: rgba(109,103,103,0.9);font-size: 16px;font-weight: 700;}
-.deviceItem i {font-size: 32px; opacity: 0.4;}
+.deviceItem i {font-size: 32px;color:#cfd955;}
 .link-decoration{text-decoration: none;}
 
-.characterItem{width:50%;height:auto;margin: 2% auto; box-sizing: border-box;border:1px solid rgba(109,103,103,0.1);padding: 7% 6% 5% 6%;}
+.characterItem{width:60%;height:auto;margin: 2% auto; box-sizing: border-box;padding: 7% 6% 5% 6%;}
+.characterItem:nth-child(1){border:1px solid #cfd955;}
+.characterItem:nth-child(2){border:1px solid #d85b4b;}
+.characterItem:nth-child(3){border:1px solid #5f7a92;}
+.characterItem:nth-child(4){border:1px solid #d3b741;}
 .character-choice-img{width:100%;margin-left: 0%;}
 
 .floaterLeft { float:left; }
@@ -71,9 +75,9 @@ img.start-logo-img {width:100%; height:auto;}
 .bluetooth-margin{margin-top:-7px;}
 
 .bluetooth-connect-icon { width:80%; height: 40%; margin-left:10%; margin-top: 93%; padding: 0 24.3%}
-.bluetooth-connect-icon i {font-size: 94pt; color:rgba(109,103,103,0.5);}
+.bluetooth-connect-icon i {font-size: 94pt;color: #cfd955;}
 
-.progress {width:70%; height:8px; margin-left: 15% !important; border-radius:0px; background-color: rgba(109,103,103,0.5); margin-top: -50px;}
+.progress {width:70%; height:8px; margin-left: 15% !important; border-radius:0px; background-color: #cfd955; margin-top: -50px;}
 .progress .indeterminate {background-color: #6d6767;}
 
 .infoPopup .popup-head ,.infoPopup .popup-body,.infoPopup .popup-title,.infoPopup .popup-buttons ,.infoPopup .popup-buttons .button-default, .infoPopup .popup, .infoPopup .popup .popup-head,  .infoPopup .popup .popup-body,.popup {
@@ -135,7 +139,10 @@ img.start-logo-img {width:100%; height:auto;}
 .popUp-btn {width:100px; height:100px;margin: 20px; background: #00ff00;}
 
 .character-stage {position:absolute; width:100%; height: 35%; background: rgba(255,255,255,1);bottom:0;}
-.character-container {position:absolute; width:100%; height:40%; background: rgba(255,0,0,0); bottom:20%;}
+/*.character-container {position:absolute; width:60%; height:40%; background: rgba(255,0,0,0); bottom:20%;}*/
+.character-container {position:absolute; width:60%; height:40%; bottom:20%; margin-left: 20%;background-size: 100%;-webkit-animation:  0.5s ease-in-out; -moz-animation:  0.5s ease-in-out; -o-animation:  0.5s ease-in-out; -ms-animation:  0.5s ease-in-out; animation:  0.5s ease-in-out; opacity: 0; } 
+
+/*.character-container {background-size: 100% !important;}*/
 .owl-in-game {width:60%;height:auto;margin-top: 5%;margin-left: 20%;}
 .owl-menu i{font-size: 20px; line-height:40px;}
 i.larger-icon{font-size: 45px;margin-top: -4.5px; margin-left: 1px;}
@@ -169,6 +176,8 @@ i.larger-icon-pad{font-size: 26px;margin-top: -1px;}
 .attention-bubble i.sleep{position: absolute; font-size: 96px; margin: 5px 0 0 38px;}
 .attention-bubble i.level{position: absolute; font-size: 58px; margin: 23px 0 0 31px;}
 
+.owl-menu .btn-floating{width: 42px;height: 42px;padding: 1.5px 0 0 0.5px;bottom: 1px;}
+
 .show{opacity:1;}
 .hide{opacity:0;}
 
@@ -191,6 +200,15 @@ i.larger-icon-pad{font-size: 26px;margin-top: -1px;}
 .green-text {color:#d4e157 !important;}
 .green {background-color:#d4e157 !important;}
 
+.green-owl-bg-color {background-color:#cfd955 !important;}
+.red-owl-bg-color {background-color:#d85b4b !important;}
+.blue-owl-bg-color {background-color:#5f7a92 !important;}
+.yellow-owl-bg-color {background-color:#d3b741 !important;}
+
+.green-owl-text-color {color:#cfd955;}
+.red-owl-text-color {color:#d85b4b;}
+.blue-owl-text-color {color:#5f7a92;}
+.yellow-owl-text-color {color:#d3b741;}
 
 .bg-dark {background:#333;}
 
@@ -317,25 +335,25 @@ md-dialog {min-width: 90%; min-height:90%;}
 
 
 .apple {
-	background:url(../../img/fruit_images/apple.svg); 
+	background:url(../img/fruit_images/apple.svg); 
 	background-size:90% 90%;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 .lime-banana {
-	background:url(../../img/fruit_images/lime-banana.svg); 
+	background:url(../img/fruit_images/lime-banana.svg); 
 	background-size:90% 90%;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 .melon-lime-cherry {
-	background:url(../../img/fruit_images/melon-lime-cherry.svg); 
+	background:url(../img/fruit_images/melon-lime-cherry.svg); 
 	background-size:90% 90%;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 .melon-pear-cherry-blueberries {
-	background:url(../../img/fruit_images/melon-pear-cherry-blueberries.svg); 
+	background:url(../img/fruit_images/melon-pear-cherry-blueberries.svg); 
 	background-size:90% 90%;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -354,7 +372,7 @@ md-dialog {min-width: 90%; min-height:90%;}
 .sleep-success {
 	width:125px;
 	height:125px;
-	border:8px solid #5e7991;
+	border:8px solid #5c6bc0;
 	border-radius: 50%;
 	margin: auto;
 	text-align: center;
@@ -388,17 +406,17 @@ md-dialog {min-width: 90%; min-height:90%;}
 	font-weight: 700;
 }
 .icon-owl-white {
-	background:url(../../img/Owl_Skins/icon-owl-white.svg);
+	background:url(../img/Owl_Skins/icon-owl-white.svg);
 	background-size:contain;
 	background-position: center center;
 } 
 .owl-sleeping-mood {
-	background: url(../../img/Owl_Skins/skin-green-sleepy.svg);
+	background: url(../img/Owl_Skins/skin-green-sleepy.svg);
 	background-size: 100% 100%;
 	background-position: center center;
 }
 .owl-sleeping {
-	background: url(../../img/Owl_Skins/skin-green-sleeping.svg);
+	background: url(../img/Owl_Skins/skin-green-sleeping.svg);
 	background-size: 100% 100%;
 	background-position: center center;
 }
@@ -427,13 +445,13 @@ md-dialog {min-width: 90%; min-height:90%;}
 	font-size:10px;  
 	text-align: center;
 }
-md-progress-circular path {stroke: rgb(94,121,145);}
+md-progress-circular path {stroke: #5c6bc0;}
 
 
 .love-owl {
 	width:100%;
 	height:150px;
-	background: url(../../img/Owl_Skins/skin-green-back.svg);
+	background: url(../img/Owl_Skins/skin-green-back.svg);
 	background-size: contain;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -442,3 +460,20 @@ md-progress-circular path {stroke: rgb(94,121,145);}
 
 .mar-top-30 {margin-top:30px;}
 .mar-top-20 {margin-top:20px;}
+
+.popup-container.dyingOwl-PopUp {width: 80%;margin: auto;height: 65%;padding: 0;}
+.dyingOwl-PopUp .popup {padding: 0%; font-family: 'Montserrat', sans-serif;background: white;border-radius: 5px;}
+.dyingOwl-PopUp .popup-head {padding: 20px 0;text-transform: uppercase;border-radius: 5px 5px 0 0;}
+.dyingOwl-PopUp h3.popup-title.ng-binding {font-size: 18px;font-family: 'Montserrat', sans-serif;font-weight: bold;}
+.dyingOwl-PopUp .popup-body{padding: 15px 0px 0 0px ;text-align: center;font-family: 'Montserrat', sans-serif;margin-bottom: 20px;color:#494040;}
+.dyingOwl-PopUp .dyingPopUp-text{padding: 10px 10px 5px 10px;}
+.dyingOwl-PopUp .popup-buttons{position: absolute;padding: 0;width: 50%;min-height: 45px;margin-left: 25%;}
+.dyingOwl-PopUp .popup-buttons button{font-family: 'Montserrat', sans-serif;}
+
+.dying-popUp-owl-img{width:80%;height:150px;margin:auto; margin-bottom: 20px;}
+.green-owl-background {background: url(../img/Owl_Skins/skin-green-normal.svg) no-repeat center center;}
+.red-owl-background {background: url(../img/Owl_Skins/skin-red-normal.svg) no-repeat center center;}
+.blue-owl-background {background: url(../img/Owl_Skins/skin-blue-normal.svg) no-repeat center center;}
+.yellow-owl-background {background: url(../img/Owl_Skins/skin-yellow-normal.svg) no-repeat center center;}
+
+.big-owl-dunno-what-to-do{position: absolute; width:150%;height:600px; margin-left: -25%; bottom:-600px; background-size:100%;z-index: 999;transition:all 200ms;}

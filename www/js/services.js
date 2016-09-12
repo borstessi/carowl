@@ -17,20 +17,23 @@ angular.module('starter.services', [])
 	    },
 	    setColor: function(chosenColor) {
 		    if(owlProperties.length == 0){
-			    owlProperties.push({owlColor:chosenColor, loveStatus:25, feedStatus:50, sleepStatus:100, levelStatus:40});
-			    console.log('RAAHH');
+			    owlProperties.push({owlColor:chosenColor, loveStatus:25, feedStatus:100, sleepStatus:5, levelStatus:40});
 		    }
 		    else{
 				owlProperties[0].owlColor = chosenColor;   
 		    }
 		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
 	    },
+	    
 	    lowerLoveStatus: function(newLoveStatus) {
-		    if(owlProperties[0].loveStatus >= newLoveStatus){
+		    if(owlProperties[0].loveStatus - newLoveStatus >= 10){
 			    owlProperties[0].loveStatus = owlProperties[0].loveStatus-newLoveStatus;
 			}
+			else if (newLoveStatus == 100) {
+				owlProperties[0].loveStatus = 0;				
+			}
 			else{
-				owlProperties[0].loveStatus = 0;
+				owlProperties[0].loveStatus = 10;
 			}
 				window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
 	    },
@@ -60,8 +63,28 @@ angular.module('starter.services', [])
 				owlProperties[0].levelStatus = 0;
 			}
 		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
+	    },
+	    
+		riseLoveStatus: function(newLoveStatus) {
+		    owlProperties[0].loveStatus = owlProperties[0].loveStatus+newLoveStatus;
+			window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
+	    },
+	    riseFeedStatus: function(newFeedStatus) {		  
+		    owlProperties[0].feedStatus = owlProperties[0].feedStatus+newFeedStatus;		
+		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
+	    },
+	    riseSleepStatus: function(newSleepStatus) {
+		    owlProperties[0].sleepStatus = owlProperties[0].sleepStatus+newSleepStatus;
+		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
+	    },
+	    riseLevelStatus: function(newLevelStatus) {
+		    owlProperties[0].levelStatus = owlProperties[0].levelStatus+newLevelStatus;
+		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
+	    },
+	    
+	    remove: function() {
+		    owlProperties = [];
+		    window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
 	    }
     }
-	
-	
 });

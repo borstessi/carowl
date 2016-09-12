@@ -1,4 +1,5 @@
 {
   "name": "Tamagotchi",
-  "app_id": ""
+  "app_id": "",
+  "defaultBrowser": "chrome"
 }
