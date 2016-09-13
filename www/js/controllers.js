@@ -261,6 +261,8 @@ angular.module('starter.controllers', [])
 	$scope.nextSlideAndStart = function() {
 		$ionicSlideBoxDelegate.next();
 		$scope.scanState = 0;
+		$('.feeding-icon-wrong').css('visibility', 'normal');
+		$('.feeding-icon-right').css('visibility', 'hidden');
 		$scope.checkRgbSensor = $interval(function (){
 			$('.feeding-color-scanning').css('background-color', 'rgb('+$scope.rgb+')');
 			if($scope.scanState == 0){
@@ -275,9 +277,13 @@ angular.module('starter.controllers', [])
 						
 			if(!$scope.rgbScannedCorrect && $scope.colorScanTimer > 0){
 				$scope.scanRightOrNot = 'Leider falsch!';
+				$('.feeding-icon-wrong').css('visibility', 'normal');
+				$('.feeding-icon-right').css('visibility', 'hidden');
 			}
 			else {
 				$scope.scanRightOrNot = 'Spitze!';
+				$('.feeding-icon-right').css('visibility', 'normal');
+				$('.feeding-icon-wrong').css('visibility', 'hidden');
 			}
 		},10);		
 		$scope.riseScanTimer = $interval(function(){
@@ -312,8 +318,13 @@ angular.module('starter.controllers', [])
 		$ionicSlideBoxDelegate.slide(1);
 
 		var sleepProgressFunction = $interval(function(){
-	
-			$scope.sleepProgress -= 1;
+			
+			console.log($scope.light);
+			if ($scope.light < 10000)
+			{
+				$scope.sleepProgress -= 1;
+			}
+			
 			console.log($scope.sleepProgress);
 			if (sleepingIndicator)
 				{
@@ -331,7 +342,12 @@ angular.module('starter.controllers', [])
 		},100);
 	
 		var sleepCounterFunction = $interval(function(){
+				if ($scope.light < 10000)
+			{
 				$scope.sleepCounter -= 1;
+			}
+
+
 		},1000);
 	}
 		
