@@ -264,8 +264,6 @@ md-dialog {min-width: 90%; min-height:90%;}
 	font-weight: 700;
 }
 
-
-
 /* FEEDING */
 
 .feeding-item {
@@ -295,12 +293,12 @@ md-dialog {min-width: 90%; min-height:90%;}
 	text-align: center;
 	color:#fff;
 }
-<<<<<<< HEAD
-.feeding-timer { font-size:24px; text-align: center;margin-auto; width: 100%;}
-.feeding-timer p:nth-child(1){margin: auto; font-size: 20px;text-align: center;}
-.feeding-timer p:nth-child(2){ font-size: 16px;margin-bottom: 10px;text-align: center;}
+
+.feeding-timer { font-size:24px; text-align: center;margin-auto;}
+.feeding-timer p:nth-child(1){margin: auto; font-size: 20px;}
+.feeding-timer p:nth-child(2){ font-size: 16px;margin-bottom: 10px;}
 .feeding-label {font-size:12px; text-align: center;}
-=======
+
 .feeding-color i {
 	position: absolute;
 	text-align: center;
@@ -312,7 +310,7 @@ md-dialog {min-width: 90%; min-height:90%;}
 .feeding-timer { font-size:24px;}
 .feeding-timer p:nth-child(1){text-align: center; font-size: 24px; margin-bottom:0px; color:#999;}
 .feeding-timer p:nth-child(2){ text-align: center; font-size: 12px; margin-bottom:10px; color:#999;}
->>>>>>> origin/master
+
 .feeding-color-scanning {
 	height:45px;
 	width:45px;
