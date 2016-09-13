@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 	var sleepingIndicator = false;
 	$scope.light = null;
 	$scope.rgb = null;
-	$scope.colorScanTimer = 8;
+	$scope.colorScanTimer = 10;
 	$scope.rgbScannedCorrect = false;
 	
 	$scope.loadData = function () {
@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
 	
 	$interval(function(){
 		$scope.loadData();
-	},10);
+	},100);
 	
 	
 	$scope.noActionsPopUp = function(titleText, templateText, kText) {
@@ -284,9 +284,13 @@ angular.module('starter.controllers', [])
 			if($scope.colorScanTimer > 0){
 				$scope.colorScanTimer--;
 			}			
-			else if($scope.colorScanTimer == 0 || !$scope.rgbScannedCorrect){
+			else if($scope.colorScanTimer == 0 && !$scope.rgbScannedCorrect){
 				//$ionicSlideBoxDelegate.slide(4);
 				$scope.scanRightOrNot = 'Leider war die Fütterung nicht erfolgreich!';
+			}
+			else if($scope.colorScanTimer == 0 && $scope.rgbScannedCorrect){
+				//$ionicSlideBoxDelegate.slide(4);
+				$scope.scanRightOrNot = 'Hervorragend, du hast alle Farben eingescannt!';
 			}
 		},1000);
 
