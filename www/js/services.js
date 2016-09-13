@@ -5,7 +5,6 @@ angular.module('starter.services', [])
 	var owlProperties = [];
 	var savedOwlProperties = [];
 	
-	
 	savedOwlProperties = window.localStorage.getItem('owlProperties');
 	owlProperties = (window.localStorage.getItem('owlProperties')!==null) ? JSON.parse(savedOwlProperties) : [];
 	window.localStorage.setItem('owlProperties', JSON.stringify(owlProperties));
@@ -17,7 +16,7 @@ angular.module('starter.services', [])
 	    },
 	    setColor: function(chosenColor) {
 		    if(owlProperties.length == 0){
-			    owlProperties.push({owlColor:chosenColor, loveStatus:25, feedStatus:100, sleepStatus:5, levelStatus:40});
+			    owlProperties.push({owlColor:chosenColor, loveStatus:50, feedStatus:10, sleepStatus:40, levelStatus:60});
 		    }
 		    else{
 				owlProperties[0].owlColor = chosenColor;   

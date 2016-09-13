@@ -140,7 +140,7 @@ img.start-logo-img {width:100%; height:auto;}
 
 .character-stage {position:absolute; width:100%; height: 35%; background: rgba(255,255,255,1);bottom:0;}
 /*.character-container {position:absolute; width:60%; height:40%; background: rgba(255,0,0,0); bottom:20%;}*/
-.character-container {position:absolute; width:60%; height:40%; bottom:20%; margin-left: 20%;background-size: 100%;-webkit-animation:  0.5s ease-in-out; -moz-animation:  0.5s ease-in-out; -o-animation:  0.5s ease-in-out; -ms-animation:  0.5s ease-in-out; animation:  0.5s ease-in-out; opacity: 0; } 
+.character-container {position:absolute; width:75%; height:40%; bottom:21%; margin-left: 12.5%;background-size: 100%;-webkit-animation:  0.5s ease-in-out; -moz-animation:  0.5s ease-in-out; -o-animation:  0.5s ease-in-out; -ms-animation:  0.5s ease-in-out; animation:  0.5s ease-in-out; opacity: 0; } 
 
 /*.character-container {background-size: 100% !important;}*/
 .owl-in-game {width:60%;height:auto;margin-top: 5%;margin-left: 20%;}
@@ -285,25 +285,27 @@ md-dialog {min-width: 90%; min-height:90%;}
 	min-height: 60px;
 }
 .feeding-color {
-	height:125px;
-	width:125px;
+	height:100px;
+	width:100px;
 	background-color:#ffcc40;
 	border-radius: 50%;
 	margin: auto;
-	margin-bottom:20px;
 	border: 3px solid #efefef;
 	text-align: center;
 	color:#fff;
 }
-.feeding-timer {padding-top:25px; font-size:32px; line-height: 1.2em;}
-.feeding-timer-label {font-size:12px;}
+.feeding-timer { font-size:24px; text-align: center;margin-auto; width: 100%;}
+.feeding-timer p:nth-child(1){margin: auto; font-size: 20px;}
+.feeding-timer p:nth-child(2){ font-size: 16px;margin-bottom: 10px;}
+.feeding-label {font-size:12px; text-align: center;}
 .feeding-color-scanning {
-	height:75px;
-	width:75px;
+	height:50px;
+	width:50px;
 	background-color:#00ee90;
 	border-radius: 50%;
 	margin: auto;
 	border: 3px solid #efefef;
+	margin-top: -10px;
 }
 .feeding-status {font-size:64px; line-height:119px;}
 
@@ -476,4 +478,4 @@ md-progress-circular path {stroke: #5c6bc0;}
 .blue-owl-background {background: url(../img/Owl_Skins/skin-blue-normal.svg) no-repeat center center;}
 .yellow-owl-background {background: url(../img/Owl_Skins/skin-yellow-normal.svg) no-repeat center center;}
 
-.big-owl-dunno-what-to-do{position: absolute; width:150%;height:600px; margin-left: -25%; bottom:-600px; background-size:100%;z-index: 999;transition:all 200ms;}
+.big-owl-dunno-what-to-do{position: absolute; width:150%;height:600px; margin-left: -25%; bottom:-600px; background-size:120%;z-index: 999;transition:all 200ms;}

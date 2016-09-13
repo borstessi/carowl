@@ -55,12 +55,32 @@ angular.module('starter.controllers', [])
 	
 })
 
-.controller("gameCtrl",function($scope, $interval, $state, $timeout, $ionicPopup, $ionicScrollDelegate, Owl, $ionicSlideBoxDelegate, $ionicHistory, $window){    
+.controller("gameCtrl",function($scope, $interval, $state, $timeout, $ionicPopup, $ionicScrollDelegate, Owl, $ionicSlideBoxDelegate, $ionicHistory, $window, $http){    
 
 	
 	$scope.sleepProgress = 100;
 	$scope.sleepCounter = 10;
 	var sleepingIndicator = false;
+	$scope.light = null;
+	$scope.rgb = null;
+	$scope.colorScanTimer = 8;
+	$scope.rgbScannedCorrect = false;
+	
+	$scope.loadData = function () {
+		$http.get("https://api.particle.io/v1/devices/3e0040000f47343432313031/Colorinfo?access_token=af96025ac3f595c31d6aaa7be95c4b2e32b50d9f")
+		.success(function (response) {
+			$scope.rgb = response.result;
+		});
+		$http.get("https://api.particle.io/v1/devices/3e0040000f47343432313031/Light?access_token=af96025ac3f595c31d6aaa7be95c4b2e32b50d9f")
+		.success(function (response) {
+			$scope.light = response.result;
+		});
+	};
+	
+	$interval(function(){
+		$scope.loadData();
+	},10);
+	
 	
 	$scope.noActionsPopUp = function(titleText, templateText, kText) {
 			var noActionsPopup = $ionicPopup.alert({
@@ -77,7 +97,7 @@ angular.module('starter.controllers', [])
 			$timeout(function(){
 			   $('.dyingOwl-PopUp .popup-head h3').addClass($scope.playerOwl.owlColor+'-owl-text-color');			   
 			   $('.dyingOwl-PopUp .popup-buttons button').addClass($scope.playerOwl.owlColor+'-owl-bg-color');			   
-		   	},100);
+		   	},10);
 		   
 		   	$scope.fadeInOverlay();
 	}
@@ -93,7 +113,7 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.showLove = function() {
-		if (!$scope.noActionsPossible) {
+		if ((!$scope.owlIsSleeping && !$scope.owlNeedsToPlay && !$scope.owlNeedsFood) || $scope.owlNeedsLove && !$scope.owlNeedsFood && !$scope.owlNeedsToPlay && !$scope.owlIsSleeping) {
 			$scope.data = {};
 		
 			// An elaborate, custom popup
@@ -102,6 +122,77 @@ angular.module('starter.controllers', [])
 		   		scope: $scope,
 		  	});
 		  	$scope.closePopup = function() {
+				myPopup.close();
+				$scope.fadeOutOverlay();
+			};
+			$scope.fadeInOverlay();
+		}
+		if ($scope.owlIsSleeping) {
+			var sleepTitleText = 'Schlaf ist Wichtig !';
+			var sleepTemplateText = 'Soll deine Eule die ganze Nacht durchfeiern? Lass sie schlafen !';
+			var sleepOkText = 'Gute N8!';
+			$scope.noActionsPopUp(sleepTitleText, sleepTemplateText, sleepOkText);
+		}
+		else if ($scope.owlNeedsToPlay) {
+			var playTitleText = 'Und sonst so ?';
+			var playTemplateText = 'Deiner Eule ist langweilig. Spiel gefälligst mal mit ihr !';
+			var playOkText = 'Let&#039;s Play!';
+			$scope.noActionsPopUp(playTitleText, playTemplateText, playOkText);
+		}
+		else if ($scope.owlNeedsFood) {
+			var foodTitleText = 'Hungersnot';
+			var foodTemplateText = 'Füttere deine Eule doch wenigstens einmal im Jahr. Sonst stirbt sie !';
+			var foodOkText = 'Guten Appetit !';
+			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
+		}
+	};
+	
+	$scope.showFeed = function() {
+		//if ((!$scope.owlIsSleeping && !$scope.owlNeedsToPlay && !$scope.owlNeedsLove) || $scope.owlNeedsFood && !$scope.owlNeedsToPlay && !$scope.owlIsSleeping) {
+			$scope.data = {};
+	
+			// An elaborate, custom popup
+			var myPopup = $ionicPopup.show({
+				templateUrl: 'templates/feed.html',
+				scope: $scope
+			});
+			$scope.closePopup = function() {
+				myPopup.close();
+				$scope.fadeOutOverlay();
+			};
+			$scope.fadeInOverlay();
+			
+		/*}
+		if ($scope.owlIsSleeping) {
+			var sleepTitleText = 'Schlaf ist Wichtig !';
+			var sleepTemplateText = 'Soll deine Eule die ganze Nacht durchfeiern? Lass sie schlafen !';
+			var sleepOkText = 'Gute N8!';
+			$scope.noActionsPopUp(sleepTitleText, sleepTemplateText, sleepOkText);
+		}
+		else if ($scope.owlNeedsToPlay) {
+			var playTitleText = 'Und sonst so ?';
+			var playTemplateText = 'Deiner Eule ist langweilig. Spiel gefälligst mal mit ihr !';
+			var playOkText = 'Let&#039;s Play!';
+			$scope.noActionsPopUp(playTitleText, playTemplateText, playOkText);
+		}
+		else if ($scope.owlNeedsLove) {
+			var foodTitleText = 'Ein bisschen Liebe?';
+			var foodTemplateText = 'Niemand hat deine Eule lieb. Streichel sie doch mal !';
+			var foodOkText = 'Sorry Dude!';
+			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
+		}*/
+	};
+	
+	$scope.showPlay = function() {
+		if ((!$scope.owlIsSleeping && !$scope.owlNeedsFood && !$scope.owlNeedsLove) || $scope.owlNeedsToPlay && !$scope.owlIsSleeping) {
+			$scope.data = {};
+	
+			// An elaborate, custom popup
+			var myPopup = $ionicPopup.show({
+				templateUrl: 'templates/play.html',
+				scope: $scope
+			});
+			$scope.closePopup = function() {
 				myPopup.close();
 				$scope.fadeOutOverlay();
 			};
@@ -119,77 +210,86 @@ angular.module('starter.controllers', [])
 			var foodOkText = 'Guten Appetit !';
 			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
 		}
+		else if ($scope.owlNeedsLove) {
+			var foodTitleText = 'Ein bisschen Liebe?';
+			var foodTemplateText = 'Niemand hat deine Eule lieb. Streichel sie doch mal !';
+			var foodOkText = 'Sorry Dude!';
+			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
+		}
+	};
+	
+	$scope.showSleep = function() {
+		if ((!$scope.owlNeedsToPlay && !$scope.owlNeedsFood && !$scope.owlNeedsLove) || $scope.owlIsSleeping) {
+			$scope.data = {};
+		
+			// An elaborate, custom popup
+			var myPopup = $ionicPopup.show({
+				templateUrl: 'templates/sleep.html',
+				scope: $scope,
+			});
+			
+			$scope.closePopup = function() {
+				myPopup.close();	
+				$scope.fadeOutOverlay();
+			};
+			$scope.fadeInOverlay();
+		}
 		else if ($scope.owlNeedsToPlay) {
 			var playTitleText = 'Und sonst so ?';
 			var playTemplateText = 'Deiner Eule ist langweilig. Spiel gefälligst mal mit ihr !';
 			var playOkText = 'Let&#039;s Play!';
 			$scope.noActionsPopUp(playTitleText, playTemplateText, playOkText);
+		}		
+		else if ($scope.owlNeedsFood) {
+			var foodTitleText = 'Hungersnot';
+			var foodTemplateText = 'Füttere deine Eule doch wenigstens einmal im Jahr. Sonst stirbt sie !';
+			var foodOkText = 'Guten Appetit !';
+			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
 		}
-	};
-	
-	$scope.showFeed = function() {
-		if (!$scope.noActionsPossible) {
-			$scope.data = {};
-	
-			// An elaborate, custom popup
-			var myPopup = $ionicPopup.show({
-				templateUrl: 'templates/feed.html',
-				scope: $scope
-			});
-			$scope.closePopup = function() {
-				myPopup.close();
-				$scope.fadeOutOverlay();
-			};
-			$scope.fadeInOverlay();
+		else if ($scope.owlNeedsLove) {
+			var foodTitleText = 'Ein bisschen Liebe?';
+			var foodTemplateText = 'Niemand hat deine Eule lieb. Streichel sie doch mal !';
+			var foodOkText = 'Sorry Dude!';
+			$scope.noActionsPopUp(foodTitleText, foodTemplateText, foodOkText);
 		}
-		else {
-			var sleepTitleText = 'Schlaf ist Wichtig !';
-			var sleepTemplateText = 'Soll deine Eule die ganze Nacht durchfeiern? Lass sie schlafen!';
-			$scope.noActionsPopUp(sleepTitleText, sleepTemplateText);
-		}
-	};
-	
-	$scope.showPlay = function() {
-		if (!$scope.noActionsPossible) {
-			$scope.data = {};
-	
-			// An elaborate, custom popup
-			var myPopup = $ionicPopup.show({
-				templateUrl: 'templates/play.html',
-				scope: $scope
-			});
-			$scope.closePopup = function() {
-				myPopup.close();
-				$scope.fadeOutOverlay();
-			};
-			$scope.fadeInOverlay();
-		}
-		else {
-			var sleepTitleText = 'Schlaf ist Wichtig !';
-			var sleepTemplateText = 'Soll deine Eule die ganze Nacht durchfeiern? Lass sie schlafen!';
-			$scope.noActionsPopUp(sleepTitleText, sleepTemplateText);
-		}
-	};
-	
-	$scope.showSleep = function() {
-		$scope.data = {};
-	
-		// An elaborate, custom popup
-		var myPopup = $ionicPopup.show({
-			templateUrl: 'templates/sleep.html',
-			scope: $scope,
-		});
-		
-		$scope.closePopup = function() {
-			myPopup.close();	
-			$scope.fadeOutOverlay();
-		};
-		$scope.fadeInOverlay();
 	};
 	
 
 	$scope.nextSlide = function() {
 		$ionicSlideBoxDelegate.next();
+	};
+	$scope.nextSlideAndStart = function() {
+		$ionicSlideBoxDelegate.next();
+		$scope.scanState = 0;
+		$scope.checkRgbSensor = $interval(function (){
+			$('.feeding-color-scanning').css('background-color', 'rgb('+$scope.rgb+')');
+			if($scope.scanState == 0){
+				$scope.targetR = 150;
+				$scope.targetG = 80;
+				$scope.targetB = 80;
+			}
+			
+			if( ($scope.scanR > $scope.targetR && $scope.scanG < $scope.targetG && $scope.scanB < $scope.targetB ) && $scope.colorScanTimer > 0) {
+				$scope.rgbScannedCorrect = true;
+			}
+						
+			if(!$scope.rgbScannedCorrect && $scope.colorScanTimer > 0){
+				$scope.scanRightOrNot = 'Leider falsch!';
+			}
+			else {
+				$scope.scanRightOrNot = 'Spitze!';
+			}
+		},10);		
+		$scope.riseScanTimer = $interval(function(){
+			if($scope.colorScanTimer > 0){
+				$scope.colorScanTimer--;
+			}			
+			else if($scope.colorScanTimer == 0 || !$scope.rgbScannedCorrect){
+				//$ionicSlideBoxDelegate.slide(4);
+				$scope.scanRightOrNot = 'Leider war die Fütterung nicht erfolgreich!';
+			}
+		},1000);
+
 	};
 	$scope.restartSlide = function() {
 		$ionicSlideBoxDelegate.slide(0);
@@ -250,6 +350,7 @@ angular.module('starter.controllers', [])
 	$scope.owlIsSleeping = false;
 	$scope.owlNeedsFood = false;
 	$scope.owlNeedsToPlay = false;
+	$scope.owlNeedsLove = false;
 	$scope.noActionsPossible = false;
 	
 	$scope.bubbleIconLove = 'love fa fa-heart red-text text-lighten-1';
@@ -267,6 +368,8 @@ angular.module('starter.controllers', [])
 	$scope.changeOwlBackgroundImage = function () {
 		$('.character-container').css('background', 'url(img/Owl_Skins/skin-'+$scope.playerOwl.owlColor+'-'+$scope.owlFeeling+'.svg) no-repeat center center');
 	};
+	
+	$scope.changeOwlBackgroundImage();
 
 	$scope.normalOwlTwinkle = function () {	
 		if (!$scope.owlPrettyMad && !$scope.owlIsSleeping && !$scope.owlNeedsToDie) {
@@ -280,7 +383,7 @@ angular.module('starter.controllers', [])
 					$scope.owlFeeling = 'normal';	
 				}
 			},600);
-		}	
+		}
 	};
 		
 	$timeout(function(){
@@ -640,6 +743,15 @@ angular.module('starter.controllers', [])
 				$scope.changeOwlBackgroundImage();
 			},300);
 		}
+			
+		if ($scope.playerOwl.levelStatus == 0 && !$scope.owlNeedsToPlay && !$scope.owlNeedsToDie) {
+			$scope.owlNeedsToPlay = true;
+			$scope.noActionsPossible = true;
+			$timeout(function(){
+				$scope.owlFeeling = 'angry';
+				$scope.changeOwlBackgroundImage();
+			},300);
+		}	
 		
 		if ($scope.playerOwl.feedStatus == 0 && !$scope.owlNeedsFood && !$scope.owlNeedsToDie) {
 			$scope.owlNeedsFood = true;
@@ -650,11 +762,11 @@ angular.module('starter.controllers', [])
 			},300);
 		}
 		
-		if ($scope.playerOwl.levelStatus == 0 && !$scope.owlNeedsToPlay && !$scope.owlNeedsToDie) {
-			$scope.owlNeedsToPlay = true;
+		if ($scope.playerOwl.loveStatus == 0 && !$scope.owlNeedsLove && !$scope.owlNeedsToDie) {
+			$scope.owlNeedsLove = true;
 			$scope.noActionsPossible = true;
 			$timeout(function(){
-				$scope.owlFeeling = 'boring';
+				$scope.owlFeeling = 'sad';
 				$scope.changeOwlBackgroundImage();
 			},300);
 		}		
@@ -743,7 +855,7 @@ angular.module('starter.controllers', [])
 				},500);
 				$timeout(function(){
 					$scope.bubbleIsHidden = true;
-				},14000);
+				},12000);
 			},3500);
 		}	
 	}
@@ -759,8 +871,7 @@ angular.module('starter.controllers', [])
 		$scope.bigOwlKnockKnock = $interval(function() {		
 			if ($scope.loadedImageCounter == 2) {
 				if($scope.bigOwlPos == -600) {
-					$('.big-owl-dunno-what-to-do').css('background', 'url(img/Owl_Skins/skin-'+$scope.playerOwl.owlColor+'-normal.svg) no-repeat center top');
-					$('.big-owl-dunno-what-to-do').css('background-size', '100%');
+					$('.big-owl-dunno-what-to-do').css('background', 'url(img/Owl_Skins/skin-'+$scope.playerOwl.owlColor+'-normal.svg) no-repeat center top / 120%');
 				}
 				if($scope.bigOwlPos < -250 && $scope.BigOwlknockTimer <= 2) {
 					$scope.bigOwlPos +=60;
@@ -768,16 +879,16 @@ angular.module('starter.controllers', [])
 				}
 				else if($scope.BigOwlknockTimer <= 2 && $scope.bigOwlPos > -250 ){
 		
-					$('.big-owl-dunno-what-to-do').css('background-size', '120%');
+					$('.big-owl-dunno-what-to-do').css('background-size', '140%');
 					//navigator.vibrate(3000);
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background-size', '100%');			
+						$('.big-owl-dunno-what-to-do').css('background-size', '120%');			
 					},100);
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background-size', '120%');
+						$('.big-owl-dunno-what-to-do').css('background-size', '140%');
 						//navigator.vibrate(3000);
 						$timeout(function(){
-							$('.big-owl-dunno-what-to-do').css('background-size', '100%');			
+							$('.big-owl-dunno-what-to-do').css('background-size', '120%');			
 						},100);
 					},200);
 					$scope.BigOwlknockTimer++;
@@ -786,16 +897,16 @@ angular.module('starter.controllers', [])
 					$('.big-owl-dunno-what-to-do').css('transition','all 0s');
 		
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesLeft.src+') no-repeat center top');
+						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesLeft.src+') no-repeat center top / 120%');
 					},500);
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesRight.src+') no-repeat center top');
+						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesRight.src+') no-repeat center top / 120%');
 					},1500);
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesLeft.src+') no-repeat center top');
+						$('.big-owl-dunno-what-to-do').css('background', 'url('+$scope.owlImgEyesLeft.src+') no-repeat center top / 120%');
 					},2500);
 					$timeout(function(){
-						$('.big-owl-dunno-what-to-do').css('background', 'url(img/Owl_Skins/skin-'+$scope.playerOwl.owlColor+'-normal.svg) no-repeat center top');
+						$('.big-owl-dunno-what-to-do').css('background', 'url(img/Owl_Skins/skin-'+$scope.playerOwl.owlColor+'-normal.svg) no-repeat center top / 120%');
 					},3500);
 		
 					$scope.eyesInAnimation = true;
