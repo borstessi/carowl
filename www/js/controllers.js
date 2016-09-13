@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 	var sleepingIndicator = false;
 	$scope.light = null;
 	$scope.rgb = null;
-	$scope.colorScanTimer = 8;
+	$scope.colorScanTimer = 10;
 	$scope.rgbScannedCorrect = false;
 	
 	$scope.loadData = function () {
@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
 	
 	$interval(function(){
 		$scope.loadData();
-	},10);
+	},100);
 	
 	
 	$scope.noActionsPopUp = function(titleText, templateText, kText) {

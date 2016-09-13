@@ -285,8 +285,9 @@ md-dialog {min-width: 90%; min-height:90%;}
 	min-height: 60px;
 }
 .feeding-color {
-	height:100px;
-	width:100px;
+	position: relative;
+	height:90px;
+	width:90px;
 	background-color:#ffcc40;
 	border-radius: 50%;
 	margin: auto;
@@ -294,19 +295,28 @@ md-dialog {min-width: 90%; min-height:90%;}
 	text-align: center;
 	color:#fff;
 }
-.feeding-timer { font-size:24px; text-align: center;margin-auto; width: 100%;}
-.feeding-timer p:nth-child(1){margin: auto; font-size: 20px;}
-.feeding-timer p:nth-child(2){ font-size: 16px;margin-bottom: 10px;}
-.feeding-label {font-size:12px; text-align: center;}
+.feeding-color i {
+	position: absolute;
+	text-align: center;
+	line-height: 84px;
+	font-size: 32px;
+	left:0px;
+	right:0px;
+}
+.feeding-timer { font-size:24px;}
+.feeding-timer p:nth-child(1){text-align: center; font-size: 24px; margin-bottom:0px; color:#999;}
+.feeding-timer p:nth-child(2){ text-align: center; font-size: 12px; margin-bottom:10px; color:#999;}
 .feeding-color-scanning {
-	height:50px;
-	width:50px;
+	height:45px;
+	width:45px;
 	background-color:#00ee90;
 	border-radius: 50%;
 	margin: auto;
 	border: 3px solid #efefef;
 	margin-top: -10px;
+	text-align: center;
 }
+.feeding-color-scanning i {line-height: 100px; font-size:14px; color:#999;}
 .feeding-status {font-size:64px; line-height:119px;}
 
 .feeding-success {
