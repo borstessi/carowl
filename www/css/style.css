@@ -169,6 +169,8 @@ i.larger-icon-pad{font-size: 26px;margin-top: -1px;}
 .status-icon-level{position: absolute;font-size: 28px;margin: 62px 0 0 52.8%;}
 .status-icon-level i {font-size: 32px;}
 
+.animate-icon-love{position: absolute;font-size: 58px;margin: 65% 0 0 52%;opacity: 0;-webkit-animation:  0.4s ease-in-out; -moz-animation:  0.4s ease-in-out; -o-animation:  0.4s ease-in-out; -ms-animation:  0.4s ease-in-out; animation:  0.4s ease-in-out;z-index:998;}
+
 .attention-bubble{position: absolute;width:30%; margin-left: 55%; margin-top:45%;-webkit-animation:  0.5s ease-in-out; -moz-animation:  0.5s ease-in-out; -o-animation:  0.5s ease-in-out; -ms-animation:  0.5s ease-in-out; animation:  0.5s ease-in-out; opacity: 0;}
 .attention-bubble img{width: 100%;}
 .attention-bubble i.love{position: absolute; font-size: 50px; margin: 31px 0 0 32px;}
@@ -286,7 +288,7 @@ md-dialog {min-width: 90%; min-height:90%;}
 	position: relative;
 	height:90px;
 	width:90px;
-	background-color:#ffcc40;
+	background-color:#eb3d3d;
 	border-radius: 50%;
 	margin: auto;
 	border: 3px solid #efefef;
@@ -340,16 +342,30 @@ md-dialog {min-width: 90%; min-height:90%;}
 	width:75px;
 	height:75px;
 	color:#fff;
-	font-size: 18px;
+	font-size: 24px;
 	line-height: 75px;
 	text-align: center;
-	background: green;
+	background-color:#666;
 	border-radius: 50%;
 	margin: auto;
 }
 .feeding-points {text-align: center; font-size:24px; font-weight: 700; margin-bottom: 10px;}
 
 
+
+.apple-lime-blueberries {
+	background:url(../img/fruit_images/apple-lime-blueberries.svg); 
+	background-size:90% 90%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.current-fruit{
+	background:url(../img/fruit_images/apple.svg); 
+	background-size:90% 90%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
 
 .apple {
 	background:url(../img/fruit_images/apple.svg); 
@@ -464,7 +480,6 @@ md-dialog {min-width: 90%; min-height:90%;}
 }
 md-progress-circular path {stroke: #5c6bc0;}
 
-
 .love-owl {
 	width:100%;
 	height:150px;
@@ -474,6 +489,14 @@ md-progress-circular path {stroke: #5c6bc0;}
 	background-repeat: no-repeat;
 }
 
+.play-owl {
+	width:100%;
+	height:150px;
+	background: url(../img/Owl_Skins/skin-green-sad.svg);
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
 
 .mar-top-30 {margin-top:30px;}
 .mar-top-20 {margin-top:20px;}
@@ -494,3 +517,4 @@ md-progress-circular path {stroke: #5c6bc0;}
 .yellow-owl-background {background: url(../img/Owl_Skins/skin-yellow-normal.svg) no-repeat center center;}
 
 .big-owl-dunno-what-to-do{position: absolute; width:150%;height:600px; margin-left: -25%; bottom:-600px; background-size:120%;z-index: 999;transition:all 200ms;}
+.play-popup-title{padding-bottom: 10px; font-size: 24px;width: 100%;text-align: center;}

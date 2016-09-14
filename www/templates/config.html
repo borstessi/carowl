@@ -71,9 +71,6 @@
 							<ion-list>						
 								<ion-item class="deviceItem" ng-repeat="device in devices" ng-click="chosenDevice()">
 									<p class="floaterLeft">{{device.name}}</p>
-									<p class="floaterRight bluetooth-margin">
-										<i class="fa fa-bluetooth" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
-									</p>
 								</ion-item>
 							</ion-list>
 						</ion-scroll>				
@@ -92,7 +89,7 @@
 							<p>Verbinde ...</p>
 						</div>
 						<div class="bluetooth-connect-icon">
-							<i class="fa fa-bluetooth" aria-hidden="true" ng-click="startGame()"></i>
+							<i class="fa fa-link" aria-hidden="true" ng-click="startGameManual()"></i>
 						</div>
 						
 						<div class="progress">

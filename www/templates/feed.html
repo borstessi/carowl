@@ -14,7 +14,7 @@
   <div class="row">
 
     <div class="col s6">
-      <div class="feeding-item apple" ng-click="nextSlide()">
+      <div class="feeding-item apple-lime-blueberries" ng-click="nextSlide()">
       </div>
     </div>
     <div class="col s6">
@@ -84,14 +84,14 @@
   <div class="row">
 
     <div class="col s12">
-      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
+      <div class="feeding-item-chosen current-fruit" >
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col s12">
-      <p class="grey-text feeding-quest">Scanne folgende Farbe</p>
+      <p class="grey-text feeding-quest">{{scanRightOrNot}}</p>
     </div>
   </div>
   <div class="row">
@@ -124,75 +124,6 @@
 </form>
 </ion-slide>
 
-<ion-slide>
-<form ng-cloak>
-  
-  <div class="row">
-
-    <div class="col s12">
-      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col s12">
-      <p class="grey-text feeding-quest">Spitze!</p>
-    </div>
-  </div>
-  <div class="row">
-
-    <div class="feeding-color">
-      <div class="feeding-status"><i class="fa fa-check"></i></div>
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="feeding-color-scanning"></div>
-
-
-  </div>
-
-</div>
-
-
-</form>
-</ion-slide>
-
-<ion-slide>
-<form ng-cloak>
-  
-  <div class="row">
-
-    <div class="col s12">
-      <div class="feeding-item-chosen apple" ng-click="nextSlide()">
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col s12">
-      <p class="grey-text feeding-quest">{{scanRightOrNot}}</p>
-    </div>
-  </div>
-  <div class="row">
-
-    <div class="feeding-color">
-      <div class="feeding-status"><i class="fa fa-close"></i></div>
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="feeding-color-scanning"></div>
-
-
-  </div>
-
-</div>
-
-
-</form>
-</ion-slide>
 
 <ion-slide>
 <form ng-cloak>
@@ -200,7 +131,7 @@
   <div class="row">
 
     <div class="col s12">
-      <div class="feeding-success grey" ng-click="nextSlide()">
+      <div class="feeding-success grey" ng-click="closePopup()">
         <i class="fa fa-check"></i>
       </div>
     </div>
@@ -216,18 +147,26 @@
 
     <div class="col s6">
       <div class="feeding-points grey-text">+10</div>
-      <div class="feeding-scanned-colors">
+      <div class="feeding-scanned-colors" style="background-color: rgb(190,20,20);">
         <i class="fa fa-cutlery"></i>
       </div>
     </div>
     <div class="col s6">
       <div class="feeding-points grey-text">+10</div>
-      <div class="feeding-scanned-colors">
+      <div class="feeding-scanned-colors" style="background-color: rgb(20,190,20);">
         <i class="fa fa-cutlery"></i>
       </div>
     </div>
+    
   </div>
-  
+  <div class="row">
+	  <div class="col s6">
+      <div class="feeding-points grey-text">+10</div>
+      <div class="feeding-scanned-colors" style="background-color: rgb(20,20,190);">
+        <i class="fa fa-cutlery"></i>
+      </div>
+    </div>
+  </div>  
 
     
 
@@ -244,7 +183,7 @@
   <div class="row">
 
     <div class="col s12">
-      <div class="feeding-success grey" ng-click="nextSlide()">
+      <div class="feeding-success grey" >
         <i class="fa fa-close"></i>
       </div>
     </div>

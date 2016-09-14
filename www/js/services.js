@@ -16,7 +16,7 @@ angular.module('starter.services', [])
 	    },
 	    setColor: function(chosenColor) {
 		    if(owlProperties.length == 0){
-			    owlProperties.push({owlColor:chosenColor, loveStatus:50, feedStatus:10, sleepStatus:40, levelStatus:60});
+			    owlProperties.push({owlColor:chosenColor, loveStatus:60, feedStatus:40, sleepStatus:10, levelStatus:55});
 		    }
 		    else{
 				owlProperties[0].owlColor = chosenColor;   

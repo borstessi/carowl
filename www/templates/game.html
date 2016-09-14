@@ -7,9 +7,12 @@
 		</div>
 		<div class="character-stage">
 		</div>
-		<div class="character-container show" ng-click="owlLeavesStage()">
+		<div class="character-container show" ng-click="animateLove()">
 			<!--<img class="owl-in-game" src="img/Owl_Skins/skin-{{playerOwl.owlColor}}-{{owlFeeling}}.svg" />-->
 		</div>	
+		<div class="animate-icon-love"> 
+			<i class="fa fa-heart red-text text-lighten-1"></i>
+		</div>
 		<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
 			<a class="btn-floating btn-large white">
 			  <i class="material-icons blue-grey-text">menu</i>
@@ -22,28 +25,28 @@
 			</ul>
 		</div>	
 		<div class="status-info">
-			<div class="progress love-status">
+			<div class="progress love-status" ng-click="lowerLoveStatus()">
 				<div class="determinate"></div>
 			</div>
-			<div class="status-icon-love">
+			<div class="status-icon-love " ng-click="riseLoveStatus()">
 				<i class="fa fa-heart red-text text-lighten-1"></i>
 			</div>
-			<div class="progress feed-status">
+			<div class="progress feed-status" ng-click="lowerFeedStatus()">
 				<div class="determinate"></div>
 			</div>
-			<div class="status-icon-feed">
+			<div class="status-icon-feed" ng-click="riseFeedStatus()">
 				<i class="fa fa-cutlery grey-text"></i>
 			</div>
-			<div class="progress sleep-status">
+			<div class="progress sleep-status" ng-click="lowerSleepStatus()">
 				<div class="determinate"></div>
 			</div>
-			<div class="status-icon-sleep">
+			<div class="status-icon-sleep" ng-click="riseSleepStatus()">
 				<i class="ion-ios-moon larger-icon indigo-text text-lighten-1"></i>
 			</div>
-			<div class="progress level-status">
+			<div class="progress level-status" ng-click="lowerLevelStatus()">
 				<div class="determinate"></div>
 			</div>
-			<div class="status-icon-level">
+			<div class="status-icon-level" ng-click="riseLevelStatus()">
 				<i class="ion-ios-game-controller-b larger-icon-pad lime-text text-lighten-1"></i>
 			</div>
 		</div>
